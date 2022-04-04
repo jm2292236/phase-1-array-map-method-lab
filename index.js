@@ -1,3 +1,4 @@
+// Testing data
 const tutorials = [
   'what does the this keyword mean?',
   'What is the Constructor OO pattern?',
@@ -11,6 +12,23 @@ const tutorials = [
   'what is JSONP?'
 ];
 
-const titleCased = () => {
-  return tutorials
-}
+const titleCased = () => { 
+    return tutorials.map(function (title, index) { 
+        // Converts title into an array of words
+        const wordsArray = title.split(' ');
+        let finalString = '';
+          
+        // Capitalize first letter of each word
+        for (let i = 0; i < wordsArray.length; i++) {
+            finalString += wordsArray[i][0].toUpperCase() + wordsArray[i].slice(1);
+            if (finalString.length < title.length)
+                finalString += ' ';
+        }
+
+        return finalString;
+    })
+};
+
+// test
+// console.log('*** Call the function ***')
+// console.log(titleCased());
